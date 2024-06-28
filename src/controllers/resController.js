@@ -234,27 +234,76 @@ const getRateListViaRes = async (req, res) => {
           attributes: [],
         },
         {
-            model: model.restaurant,
-            as: "re",
-            attributes:[],
+          model: model.restaurant,
+          as: "re",
+          attributes: [],
         },
       ],
-      attributes:[
+      attributes: [
         "user_id",
         "res_id",
         "user.full_name",
         "user.email",
         "re.res_name",
         "amount",
-        "date_rate"
+        "date_rate",
       ],
       raw: true,
     });
-    responseSend(res,listRateRes,"Successful!",200)
+    responseSend(res, listRateRes, "Successful!", 200);
   } catch (error) {
-        console.log("getRateListViaRes:",error);
-        responseSend(res,"",error,400)
+    console.log("getRateListViaRes:", error);
+    responseSend(res, "", error, 400);
   }
 };
 
-export { likeRes, unlikeRes, getLikeViaRes, getLikeViaUser, addRate,getRateListViaRes };
+//handle get rate list via res_id
+const getRateListViaUser = async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const checkUser = await checkExist({ user_id }, res, "user", "User");
+    if (!checkUser) return;
+
+    const listRateRes = await model.rate_res.findAll({
+      where: {
+        user_id,
+      },
+      include: [
+        {
+          model: model.user,
+          as: "user",
+          attributes: [],
+        },
+        {
+          model: model.restaurant,
+          as: "re",
+          attributes: [],
+        },
+      ],
+      attributes: [
+        "user_id",
+        "res_id",
+        "user.full_name",
+        "user.email",
+        "re.res_name",
+        "amount",
+        "date_rate",
+      ],
+      raw: true,
+    });
+    responseSend(res, listRateRes, "Successful!", 200);
+  } catch (error) {
+    console.log("getRateListViaRes:", error);
+    responseSend(res, "", error, 400);
+  }
+};
+
+export {
+  likeRes,
+  unlikeRes,
+  getLikeViaRes,
+  getLikeViaUser,
+  addRate,
+  getRateListViaRes,
+  getRateListViaUser,
+};
