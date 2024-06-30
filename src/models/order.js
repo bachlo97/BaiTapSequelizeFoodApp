@@ -4,10 +4,15 @@ const { Model, Sequelize } = _sequelize;
 export default class order extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
-    user_id: {
+    order_id: {
+      autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
+      primaryKey: true
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
       references: {
         model: 'user',
         key: 'user_id'
@@ -15,8 +20,7 @@ export default class order extends Model {
     },
     food_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
+      allowNull: true,
       references: {
         model: 'food',
         key: 'food_id'
@@ -44,8 +48,14 @@ export default class order extends Model {
         unique: true,
         using: "BTREE",
         fields: [
+          { name: "order_id" },
+        ]
+      },
+      {
+        name: "user_id",
+        using: "BTREE",
+        fields: [
           { name: "user_id" },
-          { name: "food_id" },
         ]
       },
       {

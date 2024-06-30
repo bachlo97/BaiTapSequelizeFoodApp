@@ -1,7 +1,7 @@
 import express from "express";
 import { orderFood } from "../controllers/userController.js";
 
-const userRouter = express.Route()
+const userRouter = express.Router()
 
 
 //handle order food

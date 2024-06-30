@@ -56,9 +56,9 @@ CREATE TABLE sub_food(
 );
 
 CREATE TABLE `order` (
+  order_id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,
   food_id INT,
-  PRIMARY KEY(user_id,food_id),
   amount INT,
   code VARCHAR(20),
   arr_sub_id VARCHAR(50),

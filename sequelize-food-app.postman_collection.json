@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "c72db2b1-4025-4d9b-a74b-b77be348e3da",
+		"name": "sequelize-food-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34764301"
+	},
+	"item": [
+		{
+			"name": "like restaurant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":7,\n    \"res_id\":7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/res/like-res",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"res",
+						"like-res"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unlike restaurant",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":7,\n    \"res_id\":7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/res/unlike-res",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"res",
+						"unlike-res"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get like list via res id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/res/get-like-list-via-res-id/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"res",
+						"get-like-list-via-res-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get like list via user id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/res/get-like-list-via-user-id/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"res",
+						"get-like-list-via-user-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Rate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":1,\n    \"res_id\":7,\n    \"amount\":4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/res/add-rate",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"res",
+						"add-rate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get rate list via res id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/res/get-rate-list-via-res-id/3",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"res",
+						"get-rate-list-via-res-id",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get rate list via user id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/res/get-rate-list-via-user-id/3",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"res",
+						"get-rate-list-via-user-id",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order food",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":10,\n    \"amount\":3,\n    \"code\":\"ABCD\",\n    \"arr_sub_id\":10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/user/order/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"user",
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
